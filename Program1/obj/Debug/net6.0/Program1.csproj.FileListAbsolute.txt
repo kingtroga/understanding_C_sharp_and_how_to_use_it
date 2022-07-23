@@ -1,0 +1,15 @@
+C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Program1\bin\Debug\net6.0\Program1.exe
+C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Program1\bin\Debug\net6.0\Program1.deps.json
+C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Program1\bin\Debug\net6.0\Program1.runtimeconfig.json
+C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Program1\bin\Debug\net6.0\Program1.dll
+C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Program1\bin\Debug\net6.0\Program1.pdb
+C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Program1\obj\Debug\net6.0\Program1.csproj.AssemblyReference.cache
+C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Program1\obj\Debug\net6.0\Program1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Program1\obj\Debug\net6.0\Program1.AssemblyInfoInputs.cache
+C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Program1\obj\Debug\net6.0\Program1.AssemblyInfo.cs
+C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Program1\obj\Debug\net6.0\Program1.csproj.CoreCompileInputs.cache
+C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Program1\obj\Debug\net6.0\Program1.dll
+C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Program1\obj\Debug\net6.0\refint\Program1.dll
+C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Program1\obj\Debug\net6.0\Program1.pdb
+C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Program1\obj\Debug\net6.0\Program1.genruntimeconfig.cache
+C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Program1\obj\Debug\net6.0\ref\Program1.dll
