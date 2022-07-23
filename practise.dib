@@ -1,0 +1,32 @@
+#!csharp
+
+int varb = 5 / 9;
+Console.WriteLine(varb);
+
+#!csharp
+
+float f = 5 / 9F;
+Console.WriteLine(f);
+
+#!csharp
+
+double f = 5 / 9;
+Console.WriteLine(f);
+
+#!csharp
+
+decimal m1 = 100;
+decimal m2 = 100M;
+
+Console.WriteLine(m1);
+Console.WriteLine(m2);
+
+#!csharp
+
+bool thisIsABool = true;
+Console.WriteLine(thisIsABool);
+
+#!csharp
+
+char c = 'a';
+Console.WriteLine(c);

@@ -1,0 +1,20 @@
+ option = get input from user 
+                 if option is manual then ask user to enter scrambled words or words comma separated
+                 if option is file then ask user to enter the full path includiing the file name
+                              if file not recognized then show warning and ask if user wants to continuse
+                                                 if user chooses yes then go to first step
+                                                 if user chooses no then exit application
+	        if option is not recognized then show warning and ask if user wants to continue
+ 				if user chooses yes then go to first step
+				if user chooses no then exit application
+		load the word list specified by the user for unscrambling the given scrambled words
+		start matching scrambled words against the loaded word list 
+			for each scrambled word in specified scrambled words
+				for each unscrambled word in word list
+					if scrambled word == unscrambled word then add to list of matched
+					otherwise
+						sort scrambled word
+						sort unscrambled word
+						if sorted scrambled word == sorted unscrambled word then add to list of matched
+		if matches found then show matched scrambled words for all unscrambled words
+                   otherwise show message that no matches have been found
