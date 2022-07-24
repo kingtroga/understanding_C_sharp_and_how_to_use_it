@@ -30,3 +30,80 @@ Console.WriteLine(thisIsABool);
 
 char c = 'a';
 Console.WriteLine(c);
+
+#!csharp
+
+string someString2 = "this is a string";
+Console.WriteLine(someString2);
+// In C# a string is a set of characters or character that's surrounded
+// with double quotation marks.
+
+#!csharp
+
+string a = "c";
+Console.WriteLine(a);
+
+#!csharp
+
+// The following is not legal.
+// string someString = "This is a line 
+// and so is this";
+
+// However, the following is legal
+string someString = "This is a line\nand so is this";
+Console.WriteLine(someString);
+
+#!csharp
+
+string s = "this is a phrase" + " and so is this";
+Console.WriteLine(s);
+
+#!csharp
+
+string mySecretName = String.Empty; // Why is this best practise?
+
+#!csharp
+
+// Verbatim string Literal
+string someString = @"This is a line
+and so is this";
+// Ohhhh so the verbatim string operator is like raw string operator in python
+Console.WriteLine(someString);
+
+#!csharp
+
+DateTime thisYear = new DateTime(2020, 1, 1);
+bool isLeapYear = DateTime.IsLeapYear(thisYear.Year);
+Console.WriteLine(isLeapYear);
+
+#!csharp
+
+DateTime thisMoment = DateTime.Now;
+DateTime anHourFromNow = thisMoment.AddHours(1);
+Console.WriteLine(anHourFromNow);
+
+#!csharp
+
+int year = DateTime.Now.Year;
+DayOfWeek dayOfWeek = DateTime.Now.DayOfWeek;
+Console.WriteLine(year);
+Console.WriteLine(dayOfWeek);
+
+#!csharp
+
+DateTime date = DateTime.Today;  
+TimeSpan time = thisMoment.TimeOfDay;
+TimeSpan duration = new TimeSpan (3, 0, 0, 0);
+DateTime threeDaysFromNow = thisMoment.Add(duration);
+
+Console.WriteLine(date);
+Console.WriteLine(time);
+Console.WriteLine(duration);
+Console.WriteLine(threeDaysFromNow);
+
+#!csharp
+
+// Interpolated Constants in C# are Formatted strings in Python
+const string Name = "George";
+const int Age = 44;
+string GeorgeStat = $"{Name} is {Age} years old.";
