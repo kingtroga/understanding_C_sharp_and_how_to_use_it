@@ -1,67 +1,61 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Program2
 {
     public class Program
     {
-        public static bool IsAllDigits(string raw)
+      static void Main(string[] args) 
         {
-            // First get rid of any benign characters at either end;
-            // if there's nothing left, you don't have a number.
-            string s = raw.Trim(); // Ignore white space on either side.
-            if (s.Length == 0) return false;
-            // Loop through the string.
-            for (int index = 0; index < s.Length; index++)
+            // Keep looping -- inputting numbers until the user
+            // enters a blank line rather than a number.
+            for (; ; )
             {
-                // Minus signs are OK, so go to the next character.
-                if (s[index] == '-' && index == 0) continue;
-                // A nondigit indicates that the string probably isn't a number.
-                if (Char.IsDigit(s[index]) == false) return false;
-            }
-            // No nondigits found; it's probably okay.
-            return true;
-        }
-        static void Main(string[] args)
-        {
-            // Prompt the user to input a sequence of numbers.
-            Console.WriteLine(
-                "Input a series of numbers separated by commas:");
+                // First input a number -- terminate when the user
+                // inputs nothing but a blank line.
+                Console.WriteLine("Enter a double number");
+                string numberInput = Console.ReadLine();
 
-            // Read a line of text.
-            string input = Console.ReadLine();
-            Console.WriteLine();
-
-            // Now convert the line into individual segments
-            // based upon either commas or spaces.
-            char[] dividers = { ',', ' ' };
-            string[] segments = input.Split(dividers);
-
-            // Convert each segment into a number.
-            int sum = 0;
-
-            foreach (string s in segments)
-            {
-                // Skip any empty segments
-                if (s.Length > 0)
+                if (numberInput.Length == 0)
                 {
-                    // Skip strings that aren't numbers.
-                    if (IsAllDigits(s))
+                    break;
+                }
+                double number = Double.Parse(numberInput);
+
+                // Now input the specifier codes; split them
+                // using spaces as dividers
+                Console.WriteLine("Enter the format specifiers"
+                                  + " separated by a blank "
+                                  + "(Example: C E F! N0 0000000.00000)");
+                char[] separator = { ' ' };
+                string formatString = Console.ReadLine();
+                string[] formats = formatString.Split(separator);
+
+                // Loop through the list of format specifiers.
+                foreach (string s in formats)
+                {
+                    if (s.Length != 0)
                     {
-                        //Convert the string into a 32-bit int.
-                        int num = 0;
-                        if (Int32.TryParse(s, out num))
+                        // Create a complete format specifier
+                        // from the letters entered earlier.
+                        string formatCommand = "{0:" + s + "}";
+
+                        // Output the number entered using the 
+                        // reconstructed format specifier.
+                        Console.Write(
+                            "The format specifier {0} results in ", formatCommand);
+                        try
                         {
-                            Console.WriteLine("Next number = {0}", num);
-                            // Add this number into the sum.
-                            sum += num;
+                            Console.WriteLine(formatCommand, number);
                         }
-                        // If parse fails, move on to next number.
+                        catch (Exception)
+                        {
+                            Console.WriteLine("<illegal control>");
+                        }
+                        Console.WriteLine();
                     }
                 }
             }
-            // Output the sum.
-            Console.WriteLine("Sum = {0}", sum);
-            Console.Read();
         }
     }
 }
