@@ -367,3 +367,9 @@ bar.x = 3;
 // And 2 + 3 now is 6 ...
 Console.WriteLine((foo+bar).x.ToString());
 Console.Read();
+
+#!csharp
+
+bool informal = true;
+string name = informal ? "Chuck" : "Charles"; // tenary operator
+Console.WriteLine(name);
