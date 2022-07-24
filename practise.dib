@@ -373,3 +373,7 @@ Console.Read();
 bool informal = true;
 string name = informal ? "Chuck" : "Charles"; // tenary operator
 Console.WriteLine(name);
+
+#!csharp
+
+# Page 117 literally makes no sense.
