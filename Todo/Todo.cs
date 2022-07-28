@@ -77,14 +77,11 @@ namespace Todo
                         continue;
                     };
                     string subOpt = td.GetSelection(theMenu[opt], listMenu);
-                    
-                }
 
-                // The "List" option
-                //else if (opt == "L")
-                //{
-
-                //}
+                    if (subOpt == "A") td.PrintTasks(allTasks, priorityScale);
+                    else if (subOpt == "C") td.PrintTasks(allTasks, priorityScale, completed = "yes");
+                    else if (subOpt == "I") td.PrintTasks(allTasks, priorityScale, completed = "no");
+                
             }
         }
     }
