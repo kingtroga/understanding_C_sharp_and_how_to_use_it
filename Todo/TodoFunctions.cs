@@ -76,5 +76,21 @@ namespace Todo
             }
             return selection;
         }
+
+        public void PrintTask(
+            Dictionary<string, string> task,
+            Dictionary<int, string> priorityScale,
+            bool nameOnly = false
+            )
+        {
+            if (nameOnly) Console.WriteLine(task["name"]);
+            if (nameOnly == false)
+            {
+                Console.WriteLine(task["name"]);
+                if (task["info"] != string.Empty) Console.WriteLine($"* {task["info"]}");
+
+
+            }
+        }
     }
 }

@@ -70,6 +70,7 @@ namespace Todo
                 {
                     Console.WriteLine($"You selected option {opt} to > {theMenu[opt]}");
                     if (allTasks == null || allTasks.Count == 0)
+                    {
                         Console.WriteLine("WARNING: There is noting to display!");
                         Console.WriteLine("::: Press Enter to continue");
                         Console.ReadLine();
