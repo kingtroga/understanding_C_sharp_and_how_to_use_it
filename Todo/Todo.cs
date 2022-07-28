@@ -54,9 +54,29 @@ namespace Todo
                 // to the user's screen
                 td.PrintMainMenu(theMenu);
 
-                break;
-            }
+                // Collect the user's input
+                // and store it inside the opt
+                // variable
+                Console.Write(":::Enter a menu option\n>");
+                opt = Console.ReadLine();
+                opt = opt.ToUpper(); // to allow us to input lower- or upper- case letters
 
+                if (!(theMenu.ContainsKey(opt)))
+                {
+                    Console.WriteLine($"WARNING: {opt} is an invalid menu option.\n");
+                    continue;
+                }
+                else
+                {
+                    break;
+                }
+
+                // The "List" option
+                //else if (opt == "L")
+                //{
+
+                //}
+            }
         }
     }
 }
