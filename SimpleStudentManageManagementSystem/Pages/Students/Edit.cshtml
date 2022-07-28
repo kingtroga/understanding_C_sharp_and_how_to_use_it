@@ -1,0 +1,77 @@
+﻿@page
+@model SimpleStudentManageManagementSystem.Pages.Students.EditModel
+@{
+
+<br />
+<h2>Edit Student</h2>
+
+@if (Model.errorMessage.Length > 0)
+{
+    <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+        <strong>@Model.errorMessage</strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    </div>
+}
+
+<form method="POST">
+    <input type="hidden" name="id" value="@Model.studentInfo.id"/>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Name</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="name" value="@Model.studentInfo.name"/>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Matric No</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="matric_no" value="@Model.studentInfo.matric_no"/>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Level</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="level" value="@Model.studentInfo.level" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Program</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="program" value="@Model.studentInfo.program" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Department</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="department" value="@Model.studentInfo.department" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">College</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="college" value="@Model.studentInfo.college" />
+        </div>
+    </div>
+
+    @if (Model.successMessage.Length > 0)
+    {
+        <div class="row mb-3">
+            <div class="col-sm-9">
+                <div class='alert alert-success alert-dismissible fade show' role='alert'>
+                    <strong>@Model.successMessage</strong>
+                    <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                </div>
+            </div>
+        </div>
+    }
+
+
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+        </div>
+    </div>
+</form>
+}
