@@ -66,9 +66,17 @@ namespace Todo
                     Console.WriteLine($"WARNING: {opt} is an invalid menu option.\n");
                     continue;
                 }
-                else
+                else if (opt == "L")
                 {
-                    break;
+                    Console.WriteLine($"You selected option {opt} to > {theMenu[opt]}");
+                    if (allTasks == null || allTasks.Count == 0)
+                        Console.WriteLine("WARNING: There is noting to display!");
+                        Console.WriteLine("::: Press Enter to continue");
+                        Console.ReadLine();
+                        continue;
+                    };
+                    string subOpt = td.GetSelection(theMenu[opt], listMenu);
+                    
                 }
 
                 // The "List" option
