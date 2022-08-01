@@ -11,7 +11,7 @@ namespace SimpleStudentManageManagementSystem.Pages.Students
         {
             try
             {
-                string connectionString = "Data Source=localhost;Intial Catalog=laptop-bag28bdg.master.dbo;Integrated Security=True";
+                string connectionString = "Data Source=localhost;Integrated Security=True";
 
                 using(SqlConnection connection = new SqlConnection(connectionString))
                 {
