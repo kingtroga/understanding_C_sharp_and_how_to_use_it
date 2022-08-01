@@ -35,7 +35,8 @@ namespace SuperHeroAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<SuperHero>> Get(int id)
         {
-            var hero = heroes[id];
+            int index = id - 1;
+            var hero = heroes[index];
             if (hero == null) return BadRequest("Hero not Found.");
             return Ok(hero);
         }
