@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperHeroAPI", "SuperHeroAPI\SuperHeroAPI.csproj", "{CBC45F42-C62B-4AE5-A5D5-180E525974AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentAPI", "StudentAPI\StudentAPI.csproj", "{25707DC2-4D55-4413-ABAC-DF1DD6829EC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentAPI", "StudentAPI\StudentAPI.csproj", "{25707DC2-4D55-4413-ABAC-DF1DD6829EC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
