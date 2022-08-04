@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Todo\bin\Debug\net6.0\Todo.exe
 C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Todo\bin\Debug\net6.0\Todo.deps.json
 C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Todo\bin\Debug\net6.0\Todo.runtimeconfig.json
@@ -13,3 +14,20 @@ C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_
 C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Todo\obj\Debug\net6.0\Todo.pdb
 C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Todo\obj\Debug\net6.0\Todo.genruntimeconfig.cache
 C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Todo\obj\Debug\net6.0\ref\Todo.dll
+=======
+C:\Users\TARI\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Todo\bin\Debug\net6.0\Todo.exe
+C:\Users\TARI\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Todo\bin\Debug\net6.0\Todo.deps.json
+C:\Users\TARI\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Todo\bin\Debug\net6.0\Todo.runtimeconfig.json
+C:\Users\TARI\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Todo\bin\Debug\net6.0\Todo.dll
+C:\Users\TARI\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Todo\bin\Debug\net6.0\Todo.pdb
+C:\Users\TARI\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Todo\obj\Debug\net6.0\Todo.csproj.AssemblyReference.cache
+C:\Users\TARI\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Todo\obj\Debug\net6.0\Todo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\TARI\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Todo\obj\Debug\net6.0\Todo.AssemblyInfoInputs.cache
+C:\Users\TARI\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Todo\obj\Debug\net6.0\Todo.AssemblyInfo.cs
+C:\Users\TARI\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Todo\obj\Debug\net6.0\Todo.csproj.CoreCompileInputs.cache
+C:\Users\TARI\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Todo\obj\Debug\net6.0\Todo.dll
+C:\Users\TARI\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Todo\obj\Debug\net6.0\refint\Todo.dll
+C:\Users\TARI\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Todo\obj\Debug\net6.0\Todo.pdb
+C:\Users\TARI\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Todo\obj\Debug\net6.0\Todo.genruntimeconfig.cache
+C:\Users\TARI\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\Todo\obj\Debug\net6.0\ref\Todo.dll
+>>>>>>> afad3dd812ccdce31c7c3714c43a8ddc76a03a00

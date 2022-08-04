@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "3HhAWBNdK4vZABG3RvcNHosQI29XiXprZrWnjMfXlbwidah8OyqkfgQp5st00fmoIuv0oxDc085Qh+9e2kB7yQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ayebatariwalateyekor\\Documents\\GitHub\\understanding_C_sharp_and_how_to_use_it\\Todo\\Todo.csproj",
+=======
+  "dgSpecHash": "P++xs8LY68vXh3yVPzoBmUxKhCRN2+p2Eh3VdwZ9UxRawSAPBshBuZhSugNDAEPfjVIAuHjx0Gr3gxHBfHVCSg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\TARI\\Documents\\GitHub\\understanding_C_sharp_and_how_to_use_it\\Todo\\Todo.csproj",
+>>>>>>> afad3dd812ccdce31c7c3714c43a8ddc76a03a00
   "expectedPackageFiles": [],
   "logs": []
 }
