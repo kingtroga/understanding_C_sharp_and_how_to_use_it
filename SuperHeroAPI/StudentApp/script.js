@@ -9,7 +9,7 @@ fetch('https://localhost:7236/api/Student')
 })
 .catch(err => console.error(err));
 
-
+var SN = 0;
 
 function displayStudents(response) {
     var studentTable = document.getElementById('StudentTable');
@@ -28,7 +28,7 @@ function displayStudents(response) {
 
 
     response.map((student) => {
-        var studentSN = document.createTextNode(`${student.id}`);
+        var studentSN = document.createTextNode(`${++SN}`);
         var studentFirstName = document.createTextNode(`${student.firstName}`);
         var studentLastName = document.createTextNode(`${student.lastName}`);
         var studentMatricNo = document.createTextNode(`${student.matricNo}`);
