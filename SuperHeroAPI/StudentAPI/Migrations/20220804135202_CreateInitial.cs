@@ -4,7 +4,7 @@
 
 namespace StudentAPI.Migrations
 {
-    public partial class Students : Migration
+    public partial class CreateInitial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

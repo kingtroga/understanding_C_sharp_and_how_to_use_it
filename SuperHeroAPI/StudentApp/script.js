@@ -1,18 +1,17 @@
-debugger
-fetch('https://localhost:7236/api/Student', { mode: 'no-cors'})
+
+fetch('https://localhost:7236/api/Student')
 .then(function(response){
     return response.json();
-    
 })
 .then(function(response){
     console.log(response);
     displayStudents(response);
 })
+.catch(err => console.error(err));
 
 
 
 function displayStudents(response) {
-    document.getElementById("Loading").innerHTML = "none";
     var studentTable = document.getElementById('StudentTable');
     let tableRow = document.createElement('tr');
     let tableData1 = document.createElement('td');
@@ -22,6 +21,11 @@ function displayStudents(response) {
     let tableData5 = document.createElement('td');
     let tableData6 = document.createElement('td');
     let tableData7 = document.createElement('td');
+    let tableData8 = document.createElement('td');
+    let tableData9 = document.createElement('td');
+    
+    
+
 
     response.map((student) => {
         var studentSN = document.createTextNode(`${student.id}`);
@@ -31,6 +35,18 @@ function displayStudents(response) {
         var studentLevel = document.createTextNode(`${student.level}`);
         var studentDepartment = document.createTextNode(`${student.department}`);
         var studentProgram = document.createTextNode(`${student.program}`);
+
+        /* edit button */
+        var editButtonText = document.createTextNode("Edit");
+        let editButton = document.createElement('button');
+        editButton.className = "edit";
+        editButton.appendChild(editButtonText);
+
+        /* delete button */
+        var deleteButtonText = document.createTextNode("Delete");
+        let deleteButton = document.createElement('button');
+        deleteButton.className = "delete";
+        deleteButton.appendChild(deleteButtonText);
 
         tableData1.appendChild(studentSN);
         tableRow.appendChild(tableData1);
@@ -52,6 +68,12 @@ function displayStudents(response) {
 
         tableData7.appendChild(studentProgram);
         tableRow.appendChild(tableData7);
+
+        tableData8.appendChild(editButton);
+        tableRow.appendChild(tableData8);
+
+        tableData9.appendChild(deleteButton);
+        tableRow.appendChild(tableData9);
 
         studentTable.appendChild(tableRow);   
     })

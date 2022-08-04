@@ -11,8 +11,8 @@ using StudentAPI.Data;
 namespace StudentAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220803124712_Students")]
-    partial class Students
+    [Migration("20220804135202_CreateInitial")]
+    partial class CreateInitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
