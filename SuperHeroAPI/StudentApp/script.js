@@ -28,6 +28,7 @@ function displayStudents(response) {
 
 
     response.map((student) => {
+        /* creating the table data for each student */
         var studentSN = document.createTextNode(`${++SN}`);
         var studentFirstName = document.createTextNode(`${student.firstName}`);
         var studentLastName = document.createTextNode(`${student.lastName}`);

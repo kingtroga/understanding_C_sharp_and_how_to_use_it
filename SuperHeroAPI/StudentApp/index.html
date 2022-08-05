@@ -24,7 +24,34 @@
     </table>
     <div class="popup">
        <div class="popup__content">
-        POPUP
+        <form action="https://localhost:7236/api/Student" method="post" id="popup__form">
+
+            <label for="fname">First name:</label>
+            <input type="text" id="fname" 
+            name="fname" placeholder="Enter Your Firstname"><br>
+
+            <label for="lname">Last name:</label>
+            <input type="text" id="lname"
+            name="lname" placeholder="Enter Your Lastname"><br>
+
+            <label for="matricNo">Matric Number:</label>
+            <input type="text" id="matricNo"
+            name="matricNo" placeholder="Enter Your Matric Number"><br>
+
+            <label for="level">Level:</label>
+            <input type="text" id="level"
+            name="level" placeholder="Enter Your Level"><br>
+
+            <label for="dept">Department:</label>
+            <input type="text" id="dept"
+            name="dept" placeholder="Enter Your Department"><br>
+
+            <label for="prog">Program:</label>
+            <input type="text" id="prog"
+            name="prog" placeholder="Enter Your Program!"><br>
+
+            <input type="submit" value="Submit">
+        </form>
        </div> 
     </div>
 
