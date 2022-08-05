@@ -113,10 +113,10 @@ button {
      top: 0;
      left: 0;
      background-color: rgba(0,0,0,.8);
-     display: none;
+    /*  display: none; */
 }
 
-.popup__content {
+#popup__content {
     width: 75%;
     height: 50rem;
     background-color: white;
