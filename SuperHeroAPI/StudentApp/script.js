@@ -4,7 +4,6 @@ fetch('https://localhost:7236/api/Student')
     return response.json();
 })
 .then(function(response){
-    console.log(response);
     displayStudents(response);
 })
 .catch(err => console.error(err));
@@ -91,14 +90,37 @@ function handleSubmit(event) {
     // stop form submission
     event.preventDefault();
 
-    var money = event;
+    
     console.log(event);
 
-    var data = new FormData(event.target);
+    var rawData = new FormData(event.target);
 
+    
+    var data = {
+        firstName : rawData.get('fname'),
+        lastName: rawData.get('lname'),
+        matricNo: rawData.get('matricNo'),
+        level: rawData.get('level'),
+        department: rawData.get('dept'),
+        program: rawData.get('prog')
+    }
+
+    fetch('https://example.com/profile', {
+        method: 'POST', // or 'PUT'
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+    console.log('Success:', data);
+    })
+    .catch((error) => {
+    console.error('Error:', error);
+    });
     
 
 
 }
 
-console.log(money);
