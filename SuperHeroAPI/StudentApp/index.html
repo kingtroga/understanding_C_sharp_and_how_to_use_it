@@ -8,7 +8,7 @@
 </head>
 <body id="body">
     <h1 id="header">SSMS</h1>
-    <button id="add">Add Student</button>
+    <button id="add" onclick="revealForm()">Add Student</button>
     <table id="StudentTable">
         <tr>
             <th>S/N</th>
@@ -22,31 +22,31 @@
             <th>Delete</th>
         </tr>
     </table>
-    <div class="popup">
+    <div id="popup">
        <div class="popup__content">
         <form  id="popup__form">
 
-            <label for="fname">First name:</label>
+            <label for="fname" class="popup__form__label">First name:</label>
             <input type="text" id="fname" 
             name="fname" placeholder="Enter Your Firstname"><br>
 
-            <label for="lname">Last name:</label>
+            <label for="lname" class="popup__form__label">Last name:</label>
             <input type="text" id="lname"
             name="lname" placeholder="Enter Your Lastname"><br>
 
-            <label for="matricNo">Matric Number:</label>
+            <label for="matricNo" class="popup__form__label">Matric Number:</label>
             <input type="text" id="matricNo"
             name="matricNo" placeholder="Enter Your Matric Number"><br>
 
-            <label for="level">Level:</label>
+            <label for="level" class="popup__form__label">Level:</label>
             <input type="text" id="level"
             name="level" placeholder="Enter Your Level"><br>
 
-            <label for="dept">Department:</label>
+            <label for="dept" class="popup__form__label">Department:</label>
             <input type="text" id="dept"
             name="dept" placeholder="Enter Your Department"><br>
 
-            <label for="prog">Program:</label>
+            <label for="prog" class="popup__form__label">Program:</label>
             <input type="text" id="prog"
             name="prog" placeholder="Enter Your Program!"><br>
 

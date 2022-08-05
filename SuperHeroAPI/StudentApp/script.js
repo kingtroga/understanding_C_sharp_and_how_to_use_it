@@ -114,7 +114,7 @@ function handleSubmit(event) {
     })
     .then((data) => {
     console.log('Success:', data);
-    removePopUp();
+    removeForm();
     })
     .catch((error) => {
     console.error('Error:', error);
@@ -124,12 +124,16 @@ function handleSubmit(event) {
 
 }
 
-function removePopUp() {
+function removeForm() {
     // remove the form from the user's view
     document.getElementById('popup').style.display = "none";
 
     // reload the page for the user to see the new student added
     window.location.reload();
     
+}
+
+function revealForm() {
+    document.getElementById('popup').style.display="block";
 }
 
