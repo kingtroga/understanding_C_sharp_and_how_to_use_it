@@ -105,16 +105,16 @@ function handleSubmit(event) {
         program: rawData.get('prog')
     }
 
-    fetch('https://example.com/profile', {
-        method: 'POST', // or 'PUT'
+    fetch('https://localhost:7236/api/Student', {
+        method: 'POST',
         headers: {
         'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
     })
-    .then((response) => response.json())
     .then((data) => {
     console.log('Success:', data);
+    removePopUp();
     })
     .catch((error) => {
     console.error('Error:', error);
@@ -122,5 +122,14 @@ function handleSubmit(event) {
     
 
 
+}
+
+function removePopUp() {
+    // remove the form from the user's view
+    document.getElementById('popup').style.display = "none";
+
+    // reload the page for the user to see the new student added
+    window.location.reload();
+    
 }
 
