@@ -128,6 +128,13 @@ button {
     transform: translate(-50%, -50%);
     border-radius: 10px;
 }
+
+/* @media screen and (min-width:600px) {
+    #popup__content {   
+        width: 75%;
+
+    }
+} */
 #popup__form{
     display: grid;
     grid-template-columns: auto auto;
@@ -144,9 +151,6 @@ button {
     font-size: 17px;
 }
 
-.popup__form-field-label{
-      
-}
 
 .popup__form-field-input{
     height: 5vh;
@@ -159,3 +163,23 @@ button {
     justify-self: end;
     margin-top: 1rem;
 }
+
+#popup__close {
+    display: none;
+}
+
+#popup__close:link,
+#popup__close:visited {
+    color: var(--color-grey-dark);
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    font-size: 3rem;
+    text-decoration: none;
+    display: inline-block;
+}
+
+#popup__close:hover {
+    color: var(--color-primary);
+}
+

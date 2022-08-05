@@ -111,16 +111,16 @@ function handleSubmit(event) {
     })
     .then((data) => {
     console.log('Success:', data);
-    removeForm();
+    removeFormAndReload();
     })
     .catch((error) => {
     console.error('Error:', error);
-    removeForm();
+    removeFormAndReload();
     window.alert(error);
     });
 }
 
-function removeForm() {
+function removeFormAndReload() {
     // remove the form from the user's view
     document.getElementById('popup').style.display = "none";
 
@@ -129,9 +129,15 @@ function removeForm() {
     
 }
 
+function removeForm() {
+    document.getElementById('popup').style.display = "none";
+}
+
 function revealForm() {
     document.getElementById('popup').style.display="block";
 }
 
+let popUpClose = document.getElementById('popup__close');
+popUpClose.addEventListener("click", removeForm);
 
 
