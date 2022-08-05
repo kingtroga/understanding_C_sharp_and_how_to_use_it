@@ -90,9 +90,6 @@ function handleSubmit(event) {
     // stop form submission
     event.preventDefault();
 
-    
-    console.log(event);
-
     var rawData = new FormData(event.target);
 
     
@@ -136,4 +133,6 @@ function removeForm() {
 function revealForm() {
     document.getElementById('popup').style.display="block";
 }
+
+
 
