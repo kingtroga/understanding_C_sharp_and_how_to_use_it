@@ -114,7 +114,7 @@ button {
      top: 0;
      left: 0;
      background-color: rgba(0,0,0,.8);
-    /*  display: none; */
+     display: none; 
 }
 
 #popup__content {
@@ -152,7 +152,6 @@ button {
     height: 5vh;
     width: 20rem;
     margin-top: 1rem;
-   
     margin-right: 2rem;
 }
 

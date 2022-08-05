@@ -115,10 +115,9 @@ function handleSubmit(event) {
     })
     .catch((error) => {
     console.error('Error:', error);
+    removeForm();
+    window.alert(error);
     });
-    
-
-
 }
 
 function removeForm() {
