@@ -13,21 +13,24 @@ var SN = 0;
 
 function displayStudents(response) {
     var studentTable = document.getElementById('StudentTable');
-    let tableRow = document.createElement('tr');
-    let tableData1 = document.createElement('td');
-    let tableData2 = document.createElement('td');
-    let tableData3 = document.createElement('td');
-    let tableData4 = document.createElement('td');
-    let tableData5 = document.createElement('td');
-    let tableData6 = document.createElement('td');
-    let tableData7 = document.createElement('td');
-    let tableData8 = document.createElement('td');
-    let tableData9 = document.createElement('td');
+    
     
     
 
 
     response.map((student) => {
+        // create a new row on the table for each student
+        let tableRow = document.createElement('tr');
+        let tableData1 = document.createElement('td');
+        let tableData2 = document.createElement('td');
+        let tableData3 = document.createElement('td');
+        let tableData4 = document.createElement('td');
+        let tableData5 = document.createElement('td');
+        let tableData6 = document.createElement('td');
+        let tableData7 = document.createElement('td');
+        let tableData8 = document.createElement('td');
+        let tableData9 = document.createElement('td');
+
         /* creating the table data for each student */
         var studentSN = document.createTextNode(`${++SN}`);
         var studentFirstName = document.createTextNode(`${student.firstName}`);
