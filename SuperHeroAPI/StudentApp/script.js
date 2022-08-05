@@ -79,3 +79,23 @@ function displayStudents(response) {
         studentTable.appendChild(tableRow);   
     })
 }
+
+
+let form = document.querySelector('form');
+form.addEventListener('submit', handleSubmit);
+
+function handleSubmit(event) {
+    // stop form submission
+    event.preventDefault();
+
+    var money = event;
+    console.log(event);
+
+    var data = new FormData(event.target);
+
+    
+
+
+}
+
+console.log(money);
