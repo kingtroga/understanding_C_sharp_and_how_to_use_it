@@ -43,6 +43,8 @@ function displayStudents(response) {
         var editButtonText = document.createTextNode("Edit");
         let editButton = document.createElement('button');
         editButton.className = "edit";
+        editButton.setAttribute("onclick", "handleClick(event)");
+        editButton.setAttribute("id", `${student.id}`)
         editButton.appendChild(editButtonText);
 
         /* delete button */
@@ -83,8 +85,9 @@ function displayStudents(response) {
 }
 
 
-let form = document.querySelector('form');
-form.addEventListener('submit', handleSubmit);
+// form handling (POST)
+
+
 
 function handleSubmit(event) {
     // stop form submission
@@ -92,7 +95,7 @@ function handleSubmit(event) {
 
     var rawData = new FormData(event.target);
 
-    
+ 
     var data = {
         firstName : rawData.get('fname'),
         lastName: rawData.get('lname'),
@@ -102,6 +105,7 @@ function handleSubmit(event) {
         program: rawData.get('prog')
     }
 
+    // add a new student
     fetch('https://localhost:7236/api/Student', {
         method: 'POST',
         headers: {
@@ -118,6 +122,7 @@ function handleSubmit(event) {
     removeFormAndReload();
     window.alert(error);
     });
+    
 }
 
 function removeFormAndReload() {
@@ -134,10 +139,41 @@ function removeForm() {
 }
 
 function revealForm() {
-    document.getElementById('popup').style.display="block";
+    document.getElementById('popup').style.display = "block";
 }
 
-let popUpClose = document.getElementById('popup__close');
-popUpClose.addEventListener("click", removeForm);
+function revealFormAndPost() {
+    document.getElementById('popup').style.display="block";
+    var form = document.querySelector('form');
+    form.addEventListener("submit", handleSubmit);
+}
 
+function revealFormAndPut() {
+    document.getElementById('popup').style.display="block";
+    
+    form.addEventListener('submit', );
+
+    var rawData = new FormData(form);
+
+ 
+    var data = {
+        firstName : rawData.get('fname'),
+        lastName: rawData.get('lname'),
+        matricNo: rawData.get('matricNo'),
+        level: rawData.get('level'),
+        department: rawData.get('dept'),
+        program: rawData.get('prog')
+    }
+
+
+}
+
+
+let popUpClose = document.getElementById('popup__close');
+popUpClose.addEventListener("click", removeFormAndReload);
+
+function handleClick(e) {
+    var studentId = e.target.id;
+    revealFormAndPut(studentId)  
+}
 
