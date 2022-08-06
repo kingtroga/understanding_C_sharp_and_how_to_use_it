@@ -93,12 +93,11 @@ function displayStudents(response) {
 
 function handleSubmit(event) {
     // stop form submission
-    event.preventDefault();
-
-    console.log(self.studentId);
-    console.log(self.method);
-
-    var rawData = new FormData(event.target);
+    if (event != undefined) {
+        event.preventDefault();
+        var rawData = new FormData(event.target);
+    }
+    
 
     if (self.studentId == undefined) {
         let data = {
@@ -130,18 +129,20 @@ function handleSubmit(event) {
     }
 
     
-        data = {
-            id: self.studentId,
-            firstName : rawData.get('fname'),
-            lastName: rawData.get('lname'),
-            matricNo: rawData.get('matricNo'),
-            level: rawData.get('level'),
-            department: rawData.get('dept'),
-            program: rawData.get('prog')
-        }
+        
 
         if (self.method){
+
             if (self.method ==  "PUT"){
+                data = {
+                    id: self.studentId,
+                    firstName : rawData.get('fname'),
+                    lastName: rawData.get('lname'),
+                    matricNo: rawData.get('matricNo'),
+                    level: rawData.get('level'),
+                    department: rawData.get('dept'),
+                    program: rawData.get('prog')
+                };
                 fetch('https://localhost:7236/api/Student/' + self.studentId, {
                 method: 'PUT',
                 headers: {
@@ -157,7 +158,9 @@ function handleSubmit(event) {
                 console.error('Error:', error);
                 removeFormAndReload();
                 window.alert(error);
-                });}
+                });
+            }
+
             else if (self.method =="DELETE"){
                 fetch(`https://localhost:7236/api/Student/${self.studentId}`, {
                 method: 'DELETE',
@@ -208,12 +211,6 @@ function revealFormAndPut() {
     form.addEventListener("submit", handleSubmit);
 }
 
-function revealFormAndDelete() {
-    //document.getElementById('popup').style.display="block";
-    self.method = "DELETE";
-    var form = document.querySelector('form');
-    form.addEventListener("submit", handleSubmit);
-}
 
 
 
@@ -234,7 +231,8 @@ function handleClickDelete(e) {
     var studentId = `${e.target.id}`;
     self.studentId = String(studentId);
     console.log(self.studentId);
-    revealFormAndDelete();
+    self.method = "DELETE";
+    handleSubmit()
 }
 
 
