@@ -43,7 +43,7 @@ function displayStudents(response) {
         var editButtonText = document.createTextNode("Edit");
         let editButton = document.createElement('button');
         editButton.className = "edit";
-        editButton.setAttribute("onclick", "handleClick(event)");
+        editButton.setAttribute("onclick", "handleClickPUT(event)");
         editButton.setAttribute("id", `${student.id}`)
         editButton.appendChild(editButtonText);
 
@@ -51,6 +51,8 @@ function displayStudents(response) {
         var deleteButtonText = document.createTextNode("Delete");
         let deleteButton = document.createElement('button');
         deleteButton.className = "delete";
+        deleteButton.setAttribute("onclick", "handleClickDelete(event)");
+        deleteButton.setAttribute("id", `${student.id}`)
         deleteButton.appendChild(deleteButtonText);
 
         tableData1.appendChild(studentSN);
@@ -93,35 +95,94 @@ function handleSubmit(event) {
     // stop form submission
     event.preventDefault();
 
+    console.log(self.studentId);
+    console.log(self.method);
+
     var rawData = new FormData(event.target);
 
- 
-    var data = {
-        firstName : rawData.get('fname'),
-        lastName: rawData.get('lname'),
-        matricNo: rawData.get('matricNo'),
-        level: rawData.get('level'),
-        department: rawData.get('dept'),
-        program: rawData.get('prog')
+    if (self.studentId == undefined) {
+        let data = {
+            firstName : rawData.get('fname'),
+            lastName: rawData.get('lname'),
+            matricNo: rawData.get('matricNo'),
+            level: rawData.get('level'),
+            department: rawData.get('dept'),
+            program: rawData.get('prog')
+        }
+    
+        // add a new student
+        fetch('https://localhost:7236/api/Student', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+        .then((data) => {
+        console.log('Success:', data);
+        removeFormAndReload();
+        })
+        .catch((error) => {
+        console.error('Error:', error);
+        removeFormAndReload();
+        window.alert(error);
+        });
     }
 
-    // add a new student
-    fetch('https://localhost:7236/api/Student', {
-        method: 'POST',
-        headers: {
-        'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    })
-    .then((data) => {
-    console.log('Success:', data);
-    removeFormAndReload();
-    })
-    .catch((error) => {
-    console.error('Error:', error);
-    removeFormAndReload();
-    window.alert(error);
-    });
+    
+        data = {
+            id: self.studentId,
+            firstName : rawData.get('fname'),
+            lastName: rawData.get('lname'),
+            matricNo: rawData.get('matricNo'),
+            level: rawData.get('level'),
+            department: rawData.get('dept'),
+            program: rawData.get('prog')
+        }
+
+        if (self.method){
+            if (self.method ==  "PUT"){
+                fetch('https://localhost:7236/api/Student/' + self.studentId, {
+                method: 'PUT',
+                headers: {
+                'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+                })
+                .then((data) => {
+                console.log('Success:', data);
+                removeFormAndReload();
+                })
+                .catch((error) => {
+                console.error('Error:', error);
+                removeFormAndReload();
+                window.alert(error);
+                });}
+            else if (self.method =="DELETE"){
+                fetch('https://localhost:7236/api/Student/' + self.studentId, {
+                method: 'DELETE',
+                headers: {
+                'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+                })
+                .then((data) => {
+                console.log('Success:', data);
+                removeFormAndReload();
+                })
+                .catch((error) => {
+                console.error('Error:', error);
+                removeFormAndReload();
+                window.alert(error);
+                }); }
+                
+            else {
+                window.alert("What the fuck did you do?");
+            }
+        }
+
+    
+    
     
 }
 
@@ -148,32 +209,42 @@ function revealFormAndPost() {
     form.addEventListener("submit", handleSubmit);
 }
 
+
 function revealFormAndPut() {
     document.getElementById('popup').style.display="block";
-    
-    form.addEventListener('submit', );
-
-    var rawData = new FormData(form);
-
- 
-    var data = {
-        firstName : rawData.get('fname'),
-        lastName: rawData.get('lname'),
-        matricNo: rawData.get('matricNo'),
-        level: rawData.get('level'),
-        department: rawData.get('dept'),
-        program: rawData.get('prog')
-    }
-
-
+    self.method = "PUT";
+    var form = document.querySelector('form');
+    form.addEventListener("submit", handleSubmit);
 }
+
+function revealFormAndDelete() {
+    //document.getElementById('popup').style.display="block";
+    self.method = "DELETE";
+    var form = document.querySelector('form');
+    form.addEventListener("submit", handleSubmit);
+}
+
 
 
 let popUpClose = document.getElementById('popup__close');
 popUpClose.addEventListener("click", removeFormAndReload);
 
-function handleClick(e) {
-    var studentId = e.target.id;
-    revealFormAndPut(studentId)  
+self = this;
+self.studentId;
+function handleClickPUT(e) {
+    var studentId = `${e.target.id}`;
+    self.studentId = String(studentId);
+    //console.log(self.studentId);
+    revealFormAndPut();
 }
+
+
+function handleClickDelete(e) {
+    var studentId = `${e.target.id}`;
+    self.studentId = String(studentId);
+    console.log(self.studentId);
+    //revealFormAndDelete();
+}
+
+
 
