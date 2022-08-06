@@ -159,23 +159,14 @@ function handleSubmit(event) {
                 window.alert(error);
                 });}
             else if (self.method =="DELETE"){
-                fetch('https://localhost:7236/api/Student/' + self.studentId, {
+                fetch(`https://localhost:7236/api/Student/${self.studentId}`, {
                 method: 'DELETE',
                 headers: {
                 'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
+                }
                 })
-                .then((data) => {
-                console.log('Success:', data);
-                removeFormAndReload();
-                })
-                .catch((error) => {
-                console.error('Error:', error);
-                removeFormAndReload();
-                window.alert(error);
-                }); }
-                
+                .then(window.location.reload());
+            }   
             else {
                 window.alert("What the fuck did you do?");
             }
@@ -243,7 +234,7 @@ function handleClickDelete(e) {
     var studentId = `${e.target.id}`;
     self.studentId = String(studentId);
     console.log(self.studentId);
-    //revealFormAndDelete();
+    revealFormAndDelete();
 }
 
 
