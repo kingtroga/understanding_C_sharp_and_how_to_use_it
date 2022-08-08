@@ -214,14 +214,20 @@ function revealDeleteForm() {
      
     // the tags
     let container = document.getElementById('popup__content');
+
     let headerTag = document.createElement('h3');
+    headerTag.setAttribute('class', 'deleteOperation')
+
     let paragraphTag = document.createElement('p');
+    paragraphTag.setAttribute('class', 'deleteOperation')
 
     let acceptButton = document.createElement('button');
-    acceptButton.setAttribute('class', 'edit decisionBtn'); //styling
+    acceptButton.setAttribute('class', 'edit decisionBtn deleteOperation'); //styling
+    acceptButton.setAttribute('onclick', 'handleDelete()');
 
     let declineButton = document.createElement('button');
-    declineButton.setAttribute('class', 'delete decisionBtn');
+    declineButton.setAttribute('class', 'delete decisionBtn deleteOperation');
+    declineButton.setAttribute('onclick', 'removeForm()');
 
     // the tag text
     let headerText = document.createTextNode('💀 Danger 💀');
@@ -241,12 +247,6 @@ function revealDeleteForm() {
 
     declineButton.appendChild(declineButtonText);
     container.appendChild(declineButton);
-
-
-
-
-    
-
 }
 
 
