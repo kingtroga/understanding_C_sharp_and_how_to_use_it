@@ -208,7 +208,8 @@ function revealFormAndPost() {
 
 function revealDeleteForm() {
     document.getElementById('popup').style.display = "block";
-    documet
+    document.getElementById('popup__form').style.display = "none";
+    
 }
 
 
