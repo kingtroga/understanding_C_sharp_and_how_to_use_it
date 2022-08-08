@@ -1,4 +1,3 @@
-
 fetch('https://localhost:7236/api/Student')
 .then(function(response){
     return response.json();
@@ -19,6 +18,7 @@ function displayStudents(response) {
 
     response.map((student) => {
         // create a new row on the table for each student
+        console.log(student.isActive);
         let tableRow = document.createElement('tr');
         let tableData1 = document.createElement('td');
         let tableData2 = document.createElement('td');
