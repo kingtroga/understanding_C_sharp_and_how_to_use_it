@@ -206,6 +206,11 @@ function revealFormAndPost() {
     form.addEventListener("submit", handleSubmit);
 }
 
+function revealDeleteForm() {
+    document.getElementById('popup').style.display = "block";
+    documet
+}
+
 
 function revealFormAndPut() {
     document.getElementById('popup').style.display="block";
@@ -233,9 +238,9 @@ function handleClickPUT(e) {
 function handleClickDelete(e) {
     var studentId = `${e.target.id}`;
     self.studentId = String(studentId);
-    console.log(self.studentId);
-    self.method = "DELETE";
-    handleSubmit()
+    revealDeleteForm() // soft delete
+    //self.method = "DELETE"; 
+    //handleSubmit()
 }
 
 
