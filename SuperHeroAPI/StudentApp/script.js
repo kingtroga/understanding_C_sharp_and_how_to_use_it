@@ -210,6 +210,43 @@ function revealDeleteForm() {
     document.getElementById('popup').style.display = "block";
     document.getElementById('popup__form').style.display = "none";
     
+    // add the h3, p, and buttons to the div.popup__content element
+     
+    // the tags
+    let container = document.getElementById('popup__content');
+    let headerTag = document.createElement('h3');
+    let paragraphTag = document.createElement('p');
+
+    let acceptButton = document.createElement('button');
+    acceptButton.setAttribute('class', 'edit decisionBtn'); //styling
+
+    let declineButton = document.createElement('button');
+    declineButton.setAttribute('class', 'delete decisionBtn');
+
+    // the tag text
+    let headerText = document.createTextNode('💀 Danger 💀');
+    let paragraphText = document.createTextNode('Are you sure you want to delete the selected student?')
+    let acceptButtonText = document.createTextNode('Yes');
+    let declineButtonText = document.createTextNode('No');
+
+    // actual task completion
+    headerTag.appendChild(headerText);
+    container.appendChild(headerTag);
+
+    paragraphTag.append(paragraphText);
+    container.appendChild(paragraphTag);
+
+    acceptButton.appendChild(acceptButtonText);
+    container.appendChild(acceptButton);
+
+    declineButton.appendChild(declineButtonText);
+    container.appendChild(declineButton);
+
+
+
+
+    
+
 }
 
 
