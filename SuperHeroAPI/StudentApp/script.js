@@ -20,19 +20,39 @@ function displayStudents(response) {
     response.map((student) => {
         // create a new row on the table for each student
         if (student.isActive) {
-            let tableRow = document.createElement('tr');
-            let tableData1 = document.createElement('td');
-            let tableData2 = document.createElement('td');
-            let tableData3 = document.createElement('td');
-            let tableData4 = document.createElement('td');
-            let tableData5 = document.createElement('td');
-            let tableData6 = document.createElement('td');
-            let tableData7 = document.createElement('td');
+            let newStudent = ++SN
+
+            let tableRow = document.createElement('tr'); // student
+            tableRow.setAttribute('id', `${newStudent}`)
+
+            let tableData1 = document.createElement('td'); // SN
+            
+
+            let tableData2 = document.createElement('td'); // firstname
+            tableData2.setAttribute('id', `${student.firstName}`);
+
+            let tableData3 = document.createElement('td'); // lastname
+            tableData3.setAttribute('id', `${student.lastName}`);
+
+
+            let tableData4 = document.createElement('td'); // matricNo
+            tableData4.setAttribute('id', `${student.matricNo}`);
+
+            let tableData5 = document.createElement('td'); // level
+            tableData5.setAttribute('id', `${student.level}`);
+
+            let tableData6 = document.createElement('td'); // department
+            tableData6.setAttribute('id', `${student.department}`);
+
+            let tableData7 = document.createElement('td'); // program
+            tableData7.setAttribute('id', `${student.program}`)
+
+
             let tableData8 = document.createElement('td');
             let tableData9 = document.createElement('td');
 
             /* creating the table data for each student */
-            var studentSN = document.createTextNode(`${++SN}`);
+            var studentSN = document.createTextNode(`${newStudent}`);
             var studentFirstName = document.createTextNode(`${student.firstName}`);
             var studentLastName = document.createTextNode(`${student.lastName}`);
             var studentMatricNo = document.createTextNode(`${student.matricNo}`);
@@ -300,7 +320,31 @@ function handleClickPUT(e) {
 
 function handleClickDelete(e) {
     var studentId = `${e.target.id}`;
+
     self.studentId = String(studentId);
+
+    // get data
+    studentToDelete = e.target.parentElement.parentElement;
+    console.log(studentToDelete)
+
+    studentToDeleteFirstName = studentToDelete.children[1].id;
+    console.log(studentToDeleteFirstName);
+
+    studentToDeleteLastName = studentToDelete.children[2].id;
+    console.log(studentToDeleteLastName);
+
+    studentToDeleteMatricNo = studentToDelete.children[3].id;
+    console.log(studentToDeleteMatricNo);
+
+    studentToDeleteLevel = studentToDelete.children[4].id;
+    console.log(studentToDeleteLevel);
+
+    studentToDeleteDept = studentToDelete.children[5].id;
+    console.log(studentToDeleteDept);
+
+    studentToDeleteProg = studentToDelete.children[6].id;
+    console.log(studentToDeleteProg);
+
     revealDeleteForm() // soft delete
     //self.method = "DELETE"; 
     //handleSubmit()
@@ -311,29 +355,5 @@ function handleDelete() {
     handleSubmit()
 }
 
-function deactivateStudent(response) {
-    // update the data.
-    data = response;
-
-    data.isActive = false;
-    console.log(self.data);
-
-    fetch('https://localhost:7236/api/Student/' + self.studentId, {
-                    method: 'PUT',
-                    headers: {
-                    'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data),
-                    })
-                    .then((data) => {
-                    console.log('Success:', data);
-                    removeFormAndReload();
-                    })
-                    .catch((error) => {
-                    console.error('Error:', error);
-                    removeFormAndReload();
-                    window.alert(error);
-                }); 
-}
 
 

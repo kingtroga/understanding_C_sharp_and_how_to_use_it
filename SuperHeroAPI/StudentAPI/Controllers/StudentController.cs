@@ -54,6 +54,10 @@ namespace StudentAPI.Controllers
             dbstudent.Level = request.Level;
             dbstudent.Department = request.Department;
             dbstudent.Program = request.Program;
+            if (request.Program != null)
+            {
+                dbstudent.IsActive = request.IsActive;
+            }
 
 
             await _context.SaveChangesAsync();
