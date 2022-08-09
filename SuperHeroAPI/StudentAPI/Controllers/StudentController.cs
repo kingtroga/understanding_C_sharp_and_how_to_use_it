@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -9,6 +10,7 @@ namespace StudentAPI.Controllers
     public class StudentController : ControllerBase
     {
         private readonly DataContext _context;
+      
         public StudentController(DataContext context)
         {
             _context = context;
@@ -59,6 +61,8 @@ namespace StudentAPI.Controllers
 
             return Ok(await _context.Students.ToListAsync());
         }
+
+       
 
         // DELETE api/<StudentController>/5
         [HttpDelete("{id}")]

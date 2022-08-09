@@ -120,3 +120,8 @@ C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_
 C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\SuperHeroAPI\StudentAPI\obj\Debug\net6.0\StudentAPI.pdb
 C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\SuperHeroAPI\StudentAPI\obj\Debug\net6.0\StudentAPI.genruntimeconfig.cache
 C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\SuperHeroAPI\StudentAPI\obj\Debug\net6.0\ref\StudentAPI.dll
+C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\SuperHeroAPI\StudentAPI\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\SuperHeroAPI\StudentAPI\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\SuperHeroAPI\StudentAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\SuperHeroAPI\StudentAPI\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Ayebatariwalateyekor\Documents\GitHub\understanding_C_sharp_and_how_to_use_it\SuperHeroAPI\StudentAPI\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

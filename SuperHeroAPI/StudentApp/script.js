@@ -8,6 +8,7 @@ fetch('https://localhost:7236/api/Student')
 .catch(err => console.error(err));
 
 var SN = 0;
+self = this;
 
 function displayStudents(response) {
     var studentTable = document.getElementById('StudentTable');
@@ -147,31 +148,43 @@ function handleSubmit(event) {
                     program: rawData.get('prog')
                 };
                 fetch('https://localhost:7236/api/Student/' + self.studentId, {
-                method: 'PUT',
-                headers: {
-                'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-                })
-                .then((data) => {
-                console.log('Success:', data);
-                removeFormAndReload();
-                })
-                .catch((error) => {
-                console.error('Error:', error);
-                removeFormAndReload();
-                window.alert(error);
+                    method: 'PUT',
+                    headers: {
+                    'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                    })
+                    .then((data) => {
+                    console.log('Success:', data);
+                    removeFormAndReload();
+                    })
+                    .catch((error) => {
+                    console.error('Error:', error);
+                    removeFormAndReload();
+                    window.alert(error);
                 });
             }
 
             else if (self.method =="DELETE"){
+                // get the data
+                
+
                 fetch(`https://localhost:7236/api/Student/${self.studentId}`, {
-                method: 'DELETE',
-                headers: {
-                'Content-Type': 'application/json',
-                }
-                })
-                .then(window.location.reload());
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        },
+                    })
+                    .then((response) => {
+                        console.log('Success:', response)
+                        // update the date
+                        deactivateStudent(response)
+                    })
+                    
+                    .catch((error) => {
+                        console.error('Error:', error);
+                        window.alert(error); 
+                    });
             }   
             else {
                 window.alert("What the fuck did you do?");
@@ -194,6 +207,7 @@ function removeFormAndReload() {
 
 function removeForm() {
     document.getElementById('popup').style.display = "none";
+    window.location.reload();
 }
 
 function revealForm() {
@@ -214,19 +228,24 @@ function revealDeleteForm() {
      
     // the tags
     let container = document.getElementById('popup__content');
+    container.setAttribute('class', 'deleteOperation');
+
+    let minorContainer = document.createElement('div');
+    minorContainer.setAttribute('class', 'minor-container');
 
     let headerTag = document.createElement('h3');
-    headerTag.setAttribute('class', 'deleteOperation')
 
     let paragraphTag = document.createElement('p');
-    paragraphTag.setAttribute('class', 'deleteOperation')
+    
+    let buttonContainer = document.createElement('div');
+    buttonContainer.setAttribute('class', 'decisionBtn');
 
     let acceptButton = document.createElement('button');
-    acceptButton.setAttribute('class', 'edit decisionBtn deleteOperation'); //styling
+    acceptButton.setAttribute('class', 'edit aBtn'); //styling
     acceptButton.setAttribute('onclick', 'handleDelete()');
 
     let declineButton = document.createElement('button');
-    declineButton.setAttribute('class', 'delete decisionBtn deleteOperation');
+    declineButton.setAttribute('class', 'delete aBtn');
     declineButton.setAttribute('onclick', 'removeForm()');
 
     // the tag text
@@ -237,16 +256,22 @@ function revealDeleteForm() {
 
     // actual task completion
     headerTag.appendChild(headerText);
-    container.appendChild(headerTag);
+    minorContainer.appendChild(headerTag);
+    container.appendChild(minorContainer);
 
     paragraphTag.append(paragraphText);
-    container.appendChild(paragraphTag);
+    minorContainer.appendChild(paragraphTag);
+    container.appendChild(minorContainer);
 
     acceptButton.appendChild(acceptButtonText);
-    container.appendChild(acceptButton);
+    buttonContainer.appendChild(acceptButton);
+    minorContainer.appendChild(buttonContainer);
+    container.appendChild(minorContainer);
 
     declineButton.appendChild(declineButtonText);
-    container.appendChild(declineButton);
+    buttonContainer.appendChild(declineButton)
+    minorContainer.appendChild(buttonContainer);
+    container.appendChild(minorContainer);
 }
 
 
@@ -263,7 +288,7 @@ function revealFormAndPut() {
 let popUpClose = document.getElementById('popup__close');
 popUpClose.addEventListener("click", removeFormAndReload);
 
-self = this;
+
 self.studentId;
 function handleClickPUT(e) {
     var studentId = `${e.target.id}`;
@@ -281,5 +306,34 @@ function handleClickDelete(e) {
     //handleSubmit()
 }
 
+function handleDelete() {
+    self.method = "DELETE"; 
+    handleSubmit()
+}
+
+function deactivateStudent(response) {
+    // update the data.
+    data = response;
+
+    data.isActive = false;
+    console.log(self.data);
+
+    fetch('https://localhost:7236/api/Student/' + self.studentId, {
+                    method: 'PUT',
+                    headers: {
+                    'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                    })
+                    .then((data) => {
+                    console.log('Success:', data);
+                    removeFormAndReload();
+                    })
+                    .catch((error) => {
+                    console.error('Error:', error);
+                    removeFormAndReload();
+                    window.alert(error);
+                }); 
+}
 
 
