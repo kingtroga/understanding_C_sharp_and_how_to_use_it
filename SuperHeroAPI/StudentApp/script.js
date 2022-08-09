@@ -9,6 +9,7 @@ fetch('https://localhost:7236/api/Student')
 
 var SN = 0;
 self = this;
+self.studentToDelete;
 
 function displayStudents(response) {
     var studentTable = document.getElementById('StudentTable');
@@ -187,33 +188,24 @@ function handleSubmit(event) {
 
             else if (self.method =="DELETE"){
                 // get the data
-                
-
-                fetch(`https://localhost:7236/api/Student/${self.studentId}`, {
-                    method: 'GET',
+                fetch('https://localhost:7236/api/Student/' + self.studentId, {
+                    method: 'PUT',
                     headers: {
-                        'Content-Type': 'application/json',
-                        },
+                    'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(self.studentToDelete),
                     })
-                    .then((response) => {
-                        console.log('Success:', response)
-                        // update the date
-                        deactivateStudent(response)
+                    .then((data) => {
+                    console.log('Success:', data);
+                    removeFormAndReload();
                     })
-                    
                     .catch((error) => {
-                        console.error('Error:', error);
-                        window.alert(error); 
-                    });
-            }   
-            else {
-                window.alert("What the fuck did you do?");
-            }
-        }
-
-    
-    
-    
+                    console.error('Error:', error);
+                    removeFormAndReload();
+                    window.alert(error);
+                });
+            }     
+        }    
 }
 
 function removeFormAndReload() {
@@ -344,6 +336,17 @@ function handleClickDelete(e) {
 
     studentToDeleteProg = studentToDelete.children[6].id;
     console.log(studentToDeleteProg);
+
+    self.studentToDelete = {
+        id: self.studentId,
+        firstName : studentToDeleteFirstName,
+        lastName: studentToDeleteLastName,
+        matricNo: studentToDeleteMatricNo,
+        level: studentToDeleteLevel,
+        department: studentToDeleteDept,
+        program: studentToDeleteProg,
+        isactive: false
+    }
 
     revealDeleteForm() // soft delete
     //self.method = "DELETE"; 
