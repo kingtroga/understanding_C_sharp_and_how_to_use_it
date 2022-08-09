@@ -358,5 +358,15 @@ function handleDelete() {
     handleSubmit()
 }
 
+/* The extra stuff that mr dara added to the code */
+function viewInactiveStudents() {
+    
+    document.getElementById('StudentTable').style.display = "none";
+    
+  
+}
 
+function viewActiveStudents() {
+    window.location.reload();
+}
 
