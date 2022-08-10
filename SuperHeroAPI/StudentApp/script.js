@@ -14,99 +14,180 @@ self.studentToDelete;
 function displayStudents(response) {
     var studentTable = document.getElementById('StudentTable');
     
-    
-    
+    if (self.displayActive != false) {
+            response.map((student) => {
+                // create a new row on the table for each student
+                if (student.isActive) {
+                    let newStudent = ++SN
+        
+                    let tableRow = document.createElement('tr'); // student
+                    tableRow.setAttribute('id', `${newStudent}`)
+        
+                    let tableData1 = document.createElement('td'); // SN
+                    
+        
+                    let tableData2 = document.createElement('td'); // firstname
+                    tableData2.setAttribute('id', `${student.firstName}`);
+        
+                    let tableData3 = document.createElement('td'); // lastname
+                    tableData3.setAttribute('id', `${student.lastName}`);
+        
+        
+                    let tableData4 = document.createElement('td'); // matricNo
+                    tableData4.setAttribute('id', `${student.matricNo}`);
+        
+                    let tableData5 = document.createElement('td'); // level
+                    tableData5.setAttribute('id', `${student.level}`);
+        
+                    let tableData6 = document.createElement('td'); // department
+                    tableData6.setAttribute('id', `${student.department}`);
+        
+                    let tableData7 = document.createElement('td'); // program
+                    tableData7.setAttribute('id', `${student.program}`)
+        
+        
+                    let tableData8 = document.createElement('td');
+                    let tableData9 = document.createElement('td');
+        
+                    /* creating the table data for each student */
+                    var studentSN = document.createTextNode(`${newStudent}`);
+                    var studentFirstName = document.createTextNode(`${student.firstName}`);
+                    var studentLastName = document.createTextNode(`${student.lastName}`);
+                    var studentMatricNo = document.createTextNode(`${student.matricNo}`);
+                    var studentLevel = document.createTextNode(`${student.level}`);
+                    var studentDepartment = document.createTextNode(`${student.department}`);
+                    var studentProgram = document.createTextNode(`${student.program}`);
+        
+                    /* edit button */
+                    var editButtonText = document.createTextNode("Edit");
+                    let editButton = document.createElement('button');
+                    editButton.className = "edit";
+                    editButton.setAttribute("onclick", "handleClickPUT(event)");
+                    editButton.setAttribute("id", `${student.id}`)
+                    editButton.appendChild(editButtonText);
+        
+                    /* delete button */
+                    var deleteButtonText = document.createTextNode("Delete");
+                    let deleteButton = document.createElement('button');
+                    deleteButton.className = "delete";
+                    deleteButton.setAttribute("onclick", "handleClickDelete(event)");
+                    deleteButton.setAttribute("id", `${student.id}`)
+                    deleteButton.appendChild(deleteButtonText);
+        
+                    tableData1.appendChild(studentSN);
+                    tableRow.appendChild(tableData1);
+        
+                    tableData2.appendChild(studentFirstName);
+                    tableRow.appendChild(tableData2);
+        
+                    tableData3.appendChild(studentLastName);
+                    tableRow.appendChild(tableData3);
+        
+                    tableData4.appendChild(studentMatricNo);
+                    tableRow.appendChild(tableData4);
+        
+                    tableData5.appendChild(studentLevel);
+                    tableRow.appendChild(tableData5);
+        
+                    tableData6.appendChild(studentDepartment);
+                    tableRow.appendChild(tableData6);
+        
+                    tableData7.appendChild(studentProgram);
+                    tableRow.appendChild(tableData7);
+        
+                    tableData8.appendChild(editButton);
+                    tableRow.appendChild(tableData8);
+        
+                    tableData9.appendChild(deleteButton);
+                    tableRow.appendChild(tableData9);
+        
+                    studentTable.appendChild(tableRow);   
+            }
+        })
+    } 
+    if (self.displayActive == false) {
+            response.map((student) => {
+                // create a new row on the table for each student
+                if (student.isActive == false) {
+                    let newStudent = ++SN
+
+                    let tableRow = document.createElement('tr'); // student
+                    tableRow.setAttribute('id', `${newStudent}`)
+
+                    let tableData1 = document.createElement('td'); // SN
+                    
+
+                    let tableData2 = document.createElement('td'); // firstname
+                    tableData2.setAttribute('id', `${student.firstName}`);
+
+                    let tableData3 = document.createElement('td'); // lastname
+                    tableData3.setAttribute('id', `${student.lastName}`);
 
 
-    response.map((student) => {
-        // create a new row on the table for each student
-        if (student.isActive) {
-            let newStudent = ++SN
+                    let tableData4 = document.createElement('td'); // matricNo
+                    tableData4.setAttribute('id', `${student.matricNo}`);
 
-            let tableRow = document.createElement('tr'); // student
-            tableRow.setAttribute('id', `${newStudent}`)
+                    let tableData5 = document.createElement('td'); // level
+                    tableData5.setAttribute('id', `${student.level}`);
 
-            let tableData1 = document.createElement('td'); // SN
-            
+                    let tableData6 = document.createElement('td'); // department
+                    tableData6.setAttribute('id', `${student.department}`);
 
-            let tableData2 = document.createElement('td'); // firstname
-            tableData2.setAttribute('id', `${student.firstName}`);
-
-            let tableData3 = document.createElement('td'); // lastname
-            tableData3.setAttribute('id', `${student.lastName}`);
+                    let tableData7 = document.createElement('td'); // program
+                    tableData7.setAttribute('id', `${student.program}`)
 
 
-            let tableData4 = document.createElement('td'); // matricNo
-            tableData4.setAttribute('id', `${student.matricNo}`);
+                    let tableData8 = document.createElement('td');
+                    let tableData9 = document.createElement('td');
 
-            let tableData5 = document.createElement('td'); // level
-            tableData5.setAttribute('id', `${student.level}`);
+                    /* creating the table data for each student */
+                    var studentSN = document.createTextNode(`${newStudent}`);
+                    var studentFirstName = document.createTextNode(`${student.firstName}`);
+                    var studentLastName = document.createTextNode(`${student.lastName}`);
+                    var studentMatricNo = document.createTextNode(`${student.matricNo}`);
+                    var studentLevel = document.createTextNode(`${student.level}`);
+                    var studentDepartment = document.createTextNode(`${student.department}`);
+                    var studentProgram = document.createTextNode(`${student.program}`);
 
-            let tableData6 = document.createElement('td'); // department
-            tableData6.setAttribute('id', `${student.department}`);
+                    /* edit button */
+                    var editButtonText = document.createTextNode("Edit");
+                    let editButton = document.createElement('button');
+                    editButton.className = "edit";
+                    editButton.setAttribute("onclick", "handleClickPUT(event)");
+                    editButton.setAttribute("id", `${student.id}`)
+                    editButton.appendChild(editButtonText);
 
-            let tableData7 = document.createElement('td'); // program
-            tableData7.setAttribute('id', `${student.program}`)
+                    
 
+                    tableData1.appendChild(studentSN);
+                    tableRow.appendChild(tableData1);
 
-            let tableData8 = document.createElement('td');
-            let tableData9 = document.createElement('td');
+                    tableData2.appendChild(studentFirstName);
+                    tableRow.appendChild(tableData2);
 
-            /* creating the table data for each student */
-            var studentSN = document.createTextNode(`${newStudent}`);
-            var studentFirstName = document.createTextNode(`${student.firstName}`);
-            var studentLastName = document.createTextNode(`${student.lastName}`);
-            var studentMatricNo = document.createTextNode(`${student.matricNo}`);
-            var studentLevel = document.createTextNode(`${student.level}`);
-            var studentDepartment = document.createTextNode(`${student.department}`);
-            var studentProgram = document.createTextNode(`${student.program}`);
+                    tableData3.appendChild(studentLastName);
+                    tableRow.appendChild(tableData3);
 
-            /* edit button */
-            var editButtonText = document.createTextNode("Edit");
-            let editButton = document.createElement('button');
-            editButton.className = "edit";
-            editButton.setAttribute("onclick", "handleClickPUT(event)");
-            editButton.setAttribute("id", `${student.id}`)
-            editButton.appendChild(editButtonText);
+                    tableData4.appendChild(studentMatricNo);
+                    tableRow.appendChild(tableData4);
 
-            /* delete button */
-            var deleteButtonText = document.createTextNode("Delete");
-            let deleteButton = document.createElement('button');
-            deleteButton.className = "delete";
-            deleteButton.setAttribute("onclick", "handleClickDelete(event)");
-            deleteButton.setAttribute("id", `${student.id}`)
-            deleteButton.appendChild(deleteButtonText);
+                    tableData5.appendChild(studentLevel);
+                    tableRow.appendChild(tableData5);
 
-            tableData1.appendChild(studentSN);
-            tableRow.appendChild(tableData1);
+                    tableData6.appendChild(studentDepartment);
+                    tableRow.appendChild(tableData6);
 
-            tableData2.appendChild(studentFirstName);
-            tableRow.appendChild(tableData2);
+                    tableData7.appendChild(studentProgram);
+                    tableRow.appendChild(tableData7);
 
-            tableData3.appendChild(studentLastName);
-            tableRow.appendChild(tableData3);
+                    tableData8.appendChild(editButton);
+                    tableRow.appendChild(tableData8);
 
-            tableData4.appendChild(studentMatricNo);
-            tableRow.appendChild(tableData4);
-
-            tableData5.appendChild(studentLevel);
-            tableRow.appendChild(tableData5);
-
-            tableData6.appendChild(studentDepartment);
-            tableRow.appendChild(tableData6);
-
-            tableData7.appendChild(studentProgram);
-            tableRow.appendChild(tableData7);
-
-            tableData8.appendChild(editButton);
-            tableRow.appendChild(tableData8);
-
-            tableData9.appendChild(deleteButton);
-            tableRow.appendChild(tableData9);
-
-            studentTable.appendChild(tableRow);   
+                    studentTable.appendChild(tableRow);   
+            }
+        }) 
     }
-})
+ 
 
         
 }
@@ -386,8 +467,19 @@ function viewInactiveStudents() {
     child = headerRow.lastChild; // <th>edit</th>
     child.innerHTML = "Activate";
 
-    
+    fetchInactiveStudents();
+}
 
+function fetchInactiveStudents() {
+    fetch('https://localhost:7236/api/Student')
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(response){
+        self.displayActive = false;
+        displayStudents(response);
+    })
+    .catch(err => console.error(err));
 }
 
 function viewActiveStudents() {
