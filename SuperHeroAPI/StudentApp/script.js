@@ -106,9 +106,11 @@ function displayStudents(response) {
         })
     } 
     if (self.displayActive == false) {
+            SN = 0;
             response.map((student) => {
                 // create a new row on the table for each student
                 if (student.isActive == false) {
+                    
                     let newStudent = ++SN
 
                     let tableRow = document.createElement('tr'); // student
@@ -149,11 +151,11 @@ function displayStudents(response) {
                     var studentDepartment = document.createTextNode(`${student.department}`);
                     var studentProgram = document.createTextNode(`${student.program}`);
 
-                    /* edit button */
-                    var editButtonText = document.createTextNode("Edit");
+                    /* Activate button */
+                    var editButtonText = document.createTextNode("Activate");
                     let editButton = document.createElement('button');
                     editButton.className = "edit";
-                    editButton.setAttribute("onclick", "handleClickPUT(event)");
+                    editButton.setAttribute("onclick", "handleClickActivate(event)");
                     editButton.setAttribute("id", `${student.id}`)
                     editButton.appendChild(editButtonText);
 
@@ -389,6 +391,64 @@ function handleClickPUT(e) {
     //console.log(self.studentId);
     revealFormAndPut();
 }
+function handleClickActivate(e) {
+    var studentId = `${e.target.id}`;
+    self.studentId = String(studentId);
+
+        // get data
+        studentToActivate = e.target.parentElement.parentElement;
+        console.log(studentToActivate)
+    
+        studentToActivateFirstName = studentToActivate.children[1].id;
+        console.log(studentToActivateFirstName);
+    
+        studentToActivateLastName = studentToActivate.children[2].id;
+        console.log(studentToActivateLastName);
+    
+        studentToActivateMatricNo = studentToActivate.children[3].id;
+        console.log(studentToActivateMatricNo);
+    
+        studentToActivateLevel = studentToActivate.children[4].id;
+        console.log(studentToActivateLevel);
+    
+        studentToActivateDept = studentToActivate.children[5].id;
+        console.log(studentToActivateDept);
+    
+        studentToActivateProg = studentToActivate.children[6].id;
+        console.log(studentToActivateProg);
+    
+        self.studentToActivate = {
+            id: self.studentId,
+            firstName : studentToActivateFirstName,
+            lastName: studentToActivateLastName,
+            matricNo: studentToActivateMatricNo,
+            level: studentToActivateLevel,
+            department: studentToActivateDept,
+            program: studentToActivateProg,
+            isactive: true
+        }
+
+    handleActivate();
+}
+
+function handleActivate() {
+    fetch('https://localhost:7236/api/Student/' + self.studentId, {
+            method: 'PUT',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(self.studentToActivate),
+            })
+    .then((data) => {
+            console.log('Success:', data);
+            window.location.reload();   
+        })
+    .catch((error) => {
+            console.error('Error:', error);
+            window.alert(error);
+        });
+    
+}
 
 
 function handleClickDelete(e) {
@@ -485,4 +545,5 @@ function fetchInactiveStudents() {
 function viewActiveStudents() {
     window.location.reload();
 }
+
 
