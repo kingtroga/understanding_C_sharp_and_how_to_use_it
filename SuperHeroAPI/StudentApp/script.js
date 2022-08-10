@@ -361,9 +361,33 @@ function handleDelete() {
 /* The extra stuff that mr dara added to the code */
 function viewInactiveStudents() {
     
-    document.getElementById('StudentTable').style.display = "none";
+    let table = document.getElementById('StudentTable');
+
+    lastTableRow = table.lastChild;
+
+    while(lastTableRow && table.childElementCount != 1) {
+        table.removeChild(lastTableRow);
+        lastTableRow = table.lastChild;
+    }
+
+    // get the headerRow
+    headerRow = table.children[0]; // tbody
+    headerRow = headerRow.children[0]; //tr
+
+    // remove the last child
+    child = headerRow.lastChild; // #text
+    headerRow.removeChild(child); // no more #text
+    child = headerRow.lastChild; // <th>Delete</th>
+    headerRow.removeChild(child); // no more <th>Delete</th>
+
+    // change the <th>edit</th> to <th>activate</th>
+    child = headerRow.lastChild; // #text
+    headerRow.removeChild(child);
+    child = headerRow.lastChild; // <th>edit</th>
+    child.innerHTML = "Activate";
+
     
-  
+
 }
 
 function viewActiveStudents() {
